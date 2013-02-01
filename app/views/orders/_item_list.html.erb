@@ -1,0 +1,18 @@
+<% @order.items.each do |a| %>
+	<tr>
+		<td><%= a.product.name %></td>
+		<td><%= a.quantity%></td>
+		<td><%= Moeda(a.price) %></td>
+		<td><%= Moeda(a.quantity * a.price) %></td>
+		<td><%= link_to 'Excluir', [@order, a], confirm: 'Confirma exclusão ?', method: :delete, remote: true %></td>
+	</tr>
+<% end %>
+<%if @order.items.count > 0 %>
+	<tr>
+		<td></td>
+		<td><%= @order.totalquantity %></td>
+		<td><%= Moeda(@order.totalprice) %></td>
+		<td><%= Moeda(@order.totaldiscount) %></td>
+		<td></td>
+	</tr>
+<%end%>

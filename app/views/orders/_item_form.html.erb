@@ -1,0 +1,10 @@
+<%= form_for [@order, @order.items.build], remote: true, :html => { :class => 'form-horizontal' } do |f| %>
+	<tr>
+		<td><%= f.collection_select(:product_id, Product.all, :id, :name,  { :prompt => true }) %></td>
+		<td><%= f.text_field :quantity, placeholder: 'Quantidade'%></td>
+		<td><%= f.text_field :price, placeholder: 'Preço'%></td>
+		<td><%= f.submit 'Gravar', :class => 'btn btn-primary'%></td>
+		<td></td>
+	</tr>
+<% end %>
+

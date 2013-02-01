@@ -1,0 +1,26 @@
+<%= form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label 'Nome', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Preço', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :price, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Categoria', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => true}) %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Gravar', :class => 'btn btn-primary' %>
+    <%= link_to 'Cancelar',
+                products_path, :class => 'btn' %>
+  </div>
+<% end %>

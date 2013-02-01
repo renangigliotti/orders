@@ -1,0 +1,36 @@
+<%= form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label 'Cliente', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :customer_id, Customer.all, :id, :name, {:prompt => true} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Data Pedido', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :date, :class => 'date_select', :order => [:day, :month, :year]%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Data Prevista', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :date_forecast, :class => 'date_select', :order => [:day, :month, :year]%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Desconto', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :discount, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Orçamento', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :budget, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Gravar', :class => 'btn btn-primary' %>
+    <%= link_to 'Cancelar', orders_path, :class => 'btn' %>
+  </div>
+<% end %>

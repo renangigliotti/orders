@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer_id: 1
+  date: 2013-01-19
+  date_forecast: 2013-01-19
+  discount: 9.99
+  budget: false
+
+two:
+  customer_id: 1
+  date: 2013-01-19
+  date_forecast: 2013-01-19
+  discount: 9.99
+  budget: false
